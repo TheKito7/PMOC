@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        Dashboard - PMOC Energisa
+    </title>
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <!-- Fonte -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet">
+
+
+
+    <!-- Ícones -->
+
+    <link 
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" 
+    rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+<!-- ==========================
+     MENU LATERAL
+========================== -->
+
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-logo">
+
+
+        <img 
+        src="../imagens/logo/Grupo_Energisa.svg.webp"
+        alt="Grupo Energisa">
+
+
+        <h3>
+            PMOC
+        </h3>
+
+
+        <span>
+            Gestão de Climatização
+        </span>
+
+
+    </div>
+
+
+
+
+    <nav class="menu">
+
+
+        <a href="dashboard.html" class="menu-item ativo">
+
+            <i class='bx bx-grid-alt'></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+
+
+        <a href="equipamentos.html" class="menu-item">
+
+            <i class='bx bx-wind'></i>
+
+            <span>
+                Equipamentos
+            </span>
+
+        </a>
+
+
+
+
+        <a href="manutencao.html" class="menu-item">
+
+            <i class='bx bx-wrench'></i>
+
+            <span>
+                Manutenções
+            </span>
+
+        </a>
+
+
+
+
+
+        <a href="#" class="menu-item">
+
+            <i class='bx bx-clipboard'></i>
+
+            <span>
+                PMOC
+            </span>
+
+        </a>
+
+
+
+
+
+        <a href="#" class="menu-item">
+
+            <i class='bx bx-building-house'></i>
+
+            <span>
+                Unidades
+            </span>
+
+        </a>
+
+
+
+
+
+        <a href="usuarios.html" class="menu-item">
+
+            <i class='bx bx-group'></i>
+
+            <span>
+                Usuários
+            </span>
+
+        </a>
+
+
+
+
+
+        <a href="#" class="menu-item">
+
+            <i class='bx bx-bar-chart-alt-2'></i>
+
+            <span>
+                Relatórios
+            </span>
+
+        </a>
+
+
+
+
+
+        <a href="#" class="menu-item">
+
+            <i class='bx bx-cog'></i>
+
+            <span>
+                Configurações
+            </span>
+
+        </a>
+
+
+
+    </nav>
+
+
+
+
+
+    <div class="sidebar-footer">
+
+
+        <div class="sidebar-footer-card">
+
+
+            <i class='bx bx-leaf'></i>
+
+
+            <p>
+                Ambientes mais eficientes para um futuro mais sustentável.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</aside>
+
+
+
+
+
+
+<!-- ==========================
+     CONTEÚDO PRINCIPAL
+========================== -->
+
+
+<main class="conteudo">
+
+
+
+
+
+<header class="topo">
+
+
+
+<div class="topo-esquerda">
+
+
+<p class="saudacao">
+Olá, administrador
+</p>
+
+
+<h1>
+Dashboard
+</h1>
+
+
+<span>
+Visão geral do sistema PMOC
+</span>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="topo-direita">
+
+
+
+<button class="botao-topo">
+
+<i class='bx bx-bell'></i>
+
+</button>
+
+
+
+
+
+
+<div class="usuario-card">
+
+
+
+<div class="avatar">
+
+GB
+
+</div>
+
+
+
+
+
+<div class="usuario-info">
+
+
+<strong id="nomeUsuario">
+
+Usuário
+
+</strong>
+
+
+
+
+<small id="perfilUsuario">
+
+Perfil
+
+</small>
+
+
+
+</div>
+
+
+
+
+
+<button 
+id="logout"
+class="botao-sair">
+
+<i class='bx bx-log-out'></i>
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+<!-- ==========================
+     CARDS
+========================== -->
+
+
+
+<section class="cards">
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+
+<h3>
+Equipamentos
+</h3>
+
+
+<p>
+Total cadastrado
+</p>
+
+
+</div>
+
+
+
+<div class="card-icon azul">
+
+<i class='bx bx-wind'></i>
+
+</div>
+
+
+
+</div>
+
+
+
+<strong>
+167
+</strong>
+
+
+<span class="card-rodape">
+Base atual do sistema
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+
+<h3>
+Manutenções
+</h3>
+
+
+<p>
+Realizadas no mês
+</p>
+
+
+</div>
+
+
+
+<div class="card-icon roxo">
+
+
+<i class='bx bx-wrench'></i>
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+0
+</strong>
+
+
+
+<span class="card-rodape">
+Aguardando integração
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+
+<h3>
+Pendências
+</h3>
+
+
+<p>
+Equipamentos com alerta
+</p>
+
+
+</div>
+
+
+
+<div class="card-icon laranja">
+
+
+<i class='bx bx-error-circle'></i>
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+0
+</strong>
+
+
+
+<span class="card-rodape">
+Nenhuma pendência crítica
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+
+<h3>
+Conformidade
+</h3>
+
+
+<p>
+PMOC em dia
+</p>
+
+
+</div>
+
+
+
+<div class="card-icon verde">
+
+
+<i class='bx bx-check-shield'></i>
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+100%
+</strong>
+
+
+
+<span class="card-rodape">
+Todos registros regulares
+</span>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================
+     GRÁFICOS
+========================== -->
+
+
+
+<section class="painel">
+
+
+
+<div class="grafico">
+
+
+
+<div class="painel-topo">
+
+
+<div>
+
+<h2>
+Manutenções por período
+</h2>
+
+
+<p>
+Evolução mensal das atividades
+</p>
+
+
+</div>
+
+
+
+<button class="painel-btn">
+
+Ver mais
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="grafico-placeholder">
+
+
+<i class='bx bx-line-chart'></i>
+
+
+<span>
+Gráfico em desenvolvimento
+</span>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="grafico">
+
+
+
+<div class="painel-topo">
+
+
+<div>
+
+<h2>
+Status dos equipamentos
+</h2>
+
+
+<p>
+Visão operacional
+</p>
+
+
+</div>
+
+
+
+<button class="painel-btn">
+
+Ver mais
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="grafico-placeholder">
+
+
+<i class='bx bx-donut-chart'></i>
+
+
+<span>
+Gráfico em desenvolvimento
+</span>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+</div>
+
+
+
+
+
+<!-- Controle de autenticação -->
+
+<script 
+type="module"
+src="../js/auth.js">
+</script>
+
+
+
+</body>
+
+
+</html>

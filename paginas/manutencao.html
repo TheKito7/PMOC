@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Manutenções | PMOC Energisa
+</title>
+
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<link 
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+
+<img 
+src="../imagens/logo/Grupo_Energisa.svg.webp"
+alt="Grupo Energisa">
+
+
+<h3>
+PMOC
+</h3>
+
+
+<span>
+Gestão de Climatização
+</span>
+
+
+</div>
+
+
+
+
+
+<nav class="menu">
+
+
+<a href="dashboard.html" class="menu-item">
+
+<i class='bx bx-grid-alt'></i>
+
+Dashboard
+
+</a>
+
+
+
+
+<a href="equipamentos.html" class="menu-item">
+
+<i class='bx bx-wind'></i>
+
+Equipamentos
+
+</a>
+
+
+
+
+
+<a href="manutencoes.html" class="menu-item ativo">
+
+<i class='bx bx-wrench'></i>
+
+Manutenções
+
+</a>
+
+
+
+
+
+<a href="usuarios.html" class="menu-item">
+
+<i class='bx bx-user'></i>
+
+Usuários
+
+</a>
+
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+
+<header class="topo">
+
+
+<div class="topo-esquerda">
+
+
+<p class="saudacao">
+PMOC
+</p>
+
+
+<h1>
+Manutenções
+</h1>
+
+
+<span>
+Controle dos serviços realizados nos equipamentos
+</span>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- INDICADORES -->
+
+
+<section class="cards">
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<h3>
+Total
+</h3>
+
+
+<div class="card-icon azul">
+
+<i class='bx bx-wrench'></i>
+
+</div>
+
+
+</div>
+
+
+<strong id="totalManutencoes">
+0
+</strong>
+
+
+<p class="card-rodape">
+Manutenções cadastradas
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<h3>
+Preventivas
+</h3>
+
+
+<div class="card-icon verde">
+
+<i class='bx bx-check-circle'></i>
+
+</div>
+
+
+</div>
+
+
+<strong id="totalPreventivas">
+0
+</strong>
+
+
+<p class="card-rodape">
+Serviços preventivos
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<h3>
+Corretivas
+</h3>
+
+
+<div class="card-icon laranja">
+
+<i class='bx bx-error'></i>
+
+</div>
+
+
+</div>
+
+
+<strong id="totalCorretivas">
+0
+</strong>
+
+
+<p class="card-rodape">
+Serviços corretivos
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<h3>
+Pendentes
+</h3>
+
+
+<div class="card-icon roxo">
+
+<i class='bx bx-time'></i>
+
+</div>
+
+
+</div>
+
+
+<strong id="totalPendentes">
+0
+</strong>
+
+
+<p class="card-rodape">
+Aguardando execução
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FILTROS -->
+
+
+<section class="filtros">
+
+
+
+<select id="filtroTipo">
+
+
+<option value="">
+Todos os serviços
+</option>
+
+
+<option value="Preventiva">
+Preventiva
+</option>
+
+
+<option value="Corretiva">
+Corretiva
+</option>
+
+
+</select>
+
+
+
+
+
+
+<select id="filtroStatus">
+
+
+<option value="">
+Todos os status
+</option>
+
+
+<option value="Concluído">
+Concluído
+</option>
+
+
+<option value="Pendente">
+Pendente
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<input 
+type="text"
+id="filtroEquipamento"
+placeholder="Buscar equipamento">
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TABELA -->
+
+
+<section class="tabela-container">
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+Data
+</th>
+
+
+<th>
+Equipamento
+</th>
+
+
+<th>
+Tipo
+</th>
+
+
+<th>
+Responsável
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Ações
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="listaManutencoes">
+
+
+<tr>
+
+<td colspan="6">
+
+Carregando manutenções...
+
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+<script 
+type="module"
+src="../js/manutencoes.js">
+
+</script>
+
+
+
+</body>
+
+
+</html>

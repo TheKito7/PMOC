@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Cadastro de Manutenção | PMOC Energisa
+</title>
+
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<link 
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+
+<img 
+src="../imagens/logo/Grupo_Energisa.svg.webp"
+alt="Grupo Energisa">
+
+
+<h3>
+PMOC
+</h3>
+
+
+<span>
+Gestão de Climatização
+</span>
+
+
+</div>
+
+
+
+
+
+
+<nav class="menu">
+
+
+<a href="dashboard.html" class="menu-item">
+
+<i class='bx bx-grid-alt'></i>
+
+Dashboard
+
+</a>
+
+
+
+
+<a href="equipamentos.html" class="menu-item ativo">
+
+<i class='bx bx-wind'></i>
+
+Equipamentos
+
+</a>
+
+
+
+
+
+<a href="manutencao.html" class="menu-item">
+
+<i class='bx bx-wrench'></i>
+
+Manutenções
+
+</a>
+
+
+
+</nav>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+
+<main class="conteudo">
+
+
+<header class="topo">
+
+
+<div>
+
+
+<p class="saudacao">
+PMOC
+</p>
+
+
+<h1>
+Registrar manutenção
+</h1>
+
+
+<span>
+Cadastro de serviço realizado no equipamento
+</span>
+
+
+</div>
+
+
+
+
+
+<a 
+href="javascript:history.back()"
+class="btn-secundario">
+
+
+<i class='bx bx-arrow-back'></i>
+
+Voltar
+
+
+</a>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<section class="form-manutencao">
+
+
+
+<div class="card-detalhe">
+
+
+<h2>
+
+<i class='bx bx-wind'></i>
+
+Equipamento
+
+</h2>
+
+
+
+<div class="equipamento-resumo">
+
+
+<h3 id="codigoEquipamento">
+
+AC-002
+
+</h3>
+
+
+<p id="descricaoEquipamento">
+
+Carregando equipamento...
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card-detalhe">
+
+
+<h2>
+
+<i class='bx bx-wrench'></i>
+
+Dados da manutenção
+
+</h2>
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Data da manutenção
+</label>
+
+
+<input 
+type="date"
+id="dataManutencao">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Tipo de serviço
+</label>
+
+
+<select id="tipoServico">
+
+
+<option>
+Preventiva
+</option>
+
+
+<option>
+Corretiva
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Técnico responsável
+</label>
+
+
+<input
+
+type="text"
+
+id="tecnico"
+
+placeholder="Nome do técnico">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Serviços realizados
+</label>
+
+
+
+<div class="check-list">
+
+
+<label>
+
+<input type="checkbox">
+
+Limpeza dos filtros
+
+</label>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Higienização
+
+</label>
+
+
+
+
+<label>
+
+<input type="checkbox">
+
+Verificação elétrica
+
+</label>
+
+
+
+
+<label>
+
+<input type="checkbox">
+
+Teste de funcionamento
+
+</label>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Observações
+</label>
+
+
+<textarea
+
+id="observacao"
+
+placeholder="Digite informações adicionais">
+
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Fotos do serviço
+</label>
+
+
+<input 
+
+type="file"
+
+multiple>
+
+
+</div>
+
+
+
+
+
+
+
+<button class="btn-principal">
+
+<i class='bx bx-save'></i>
+
+Salvar manutenção
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+</main>
+
+
+
+</div>
+
+
+
+
+
+<script 
+type="module"
+src="../js/cadastroManutencao.js">
+</script>
+
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Equipamentos - PMOC Energisa
+</title>
+
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<link 
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" 
+rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+
+<img 
+src="../imagens/logo/Grupo_Energisa.svg.webp"
+alt="Grupo Energisa">
+
+
+<h3>
+PMOC
+</h3>
+
+
+<span>
+Gestão de Climatização
+</span>
+
+
+</div>
+
+
+
+
+
+<nav class="menu">
+
+
+
+<a href="dashboard.html" class="menu-item">
+
+<i class='bx bx-grid-alt'></i>
+
+<span>
+Dashboard
+</span>
+
+</a>
+
+
+
+
+<a class="menu-item ativo">
+
+<i class='bx bx-wind'></i>
+
+<span>
+Equipamentos
+</span>
+
+</a>
+
+
+
+
+<a href="manutencao.html" class="menu-item">
+
+<i class='bx bx-wrench'></i>
+
+<span>
+Manutenções
+</span>
+
+</a>
+
+
+
+
+<a href="#" class="menu-item">
+
+<i class='bx bx-clipboard'></i>
+
+<span>
+PMOC
+</span>
+
+</a>
+
+
+
+
+<a href="#" class="menu-item">
+
+<i class='bx bx-building-house'></i>
+
+<span>
+Unidades
+</span>
+
+</a>
+
+
+
+
+<a href="usuarios.html" class="menu-item">
+
+<i class='bx bx-group'></i>
+
+<span>
+Usuários
+</span>
+
+</a>
+
+
+
+<a href="#" class="menu-item">
+
+<i class='bx bx-bar-chart-alt-2'></i>
+
+<span>
+Relatórios
+</span>
+
+</a>
+
+
+
+</nav>
+
+
+
+</aside>
+
+
+
+
+
+
+
+<!-- =========================
+     CONTEÚDO
+========================= -->
+
+
+<main class="conteudo">
+
+
+
+
+
+<header class="topo">
+
+
+<div class="topo-esquerda">
+
+
+<p class="saudacao">
+Gestão de ativos
+</p>
+
+
+<h1>
+Equipamentos
+</h1>
+
+
+<span>
+Gerencie todos os equipamentos de climatização do PMOC
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="topo-direita">
+
+
+
+<button   class="btn-principal">
+    
+
+    <a 
+    href="cadastro_equipamento.html"
+    class="btn-principal">
+    
+
+    
+    </a>
+<i class='bx bx-plus'></i>
+
+
+Novo equipamento
+
+
+</button>
+
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<!-- =========================
+     CARDS
+========================= -->
+
+
+<section class="cards">
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+<h3>
+Equipamentos
+</h3>
+
+<p>
+Total cadastrado
+</p>
+
+</div>
+
+
+<div class="card-icon azul">
+
+<i class='bx bx-wind'></i>
+
+</div>
+
+
+</div>
+
+
+<strong id="totalEquipamentos">
+    0
+    </strong>
+
+
+<span class="card-rodape">
+Aguardando sincronização
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+<h3>
+Manutenção próxima
+</h3>
+
+<p>
+Próximos 30 dias
+</p>
+
+</div>
+
+
+<div class="card-icon laranja">
+
+<i class='bx bx-time'></i>
+
+</div>
+
+
+</div>
+
+
+<strong>
+0
+</strong>
+
+
+<span class="card-rodape">
+Equipamentos próximos da revisão
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+<h3>
+Correções
+</h3>
+
+<p>
+Em andamento
+</p>
+
+</div>
+
+
+<div class="card-icon roxo">
+
+<i class='bx bx-wrench'></i>
+
+</div>
+
+
+</div>
+
+
+<strong>
+0
+</strong>
+
+
+<span class="card-rodape">
+Equipamentos com intervenção
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="card-topo">
+
+
+<div>
+
+<h3>
+Conformidade
+</h3>
+
+<p>
+Situação geral
+</p>
+
+</div>
+
+
+<div class="card-icon verde">
+
+<i class='bx bx-check-circle'></i>
+
+</div>
+
+
+</div>
+
+
+<strong>
+0%
+</strong>
+
+
+<span class="card-rodape">
+Indicador PMOC
+</span>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     FILTROS
+========================= -->
+
+
+<section class="filtros">
+
+
+<select id="filtroUnidade">
+
+<option>
+Todas as unidades
+</option>
+
+</select>
+
+
+
+
+<select id="filtroAmbiente">
+
+<option>
+Todos os ambientes
+</option>
+
+</select>
+
+
+
+
+
+<select id="filtroMarca">
+
+<option>
+Todas as marcas
+</option>
+
+</select>
+
+
+
+
+
+<select id="filtroBtus">
+
+<option>
+Todos os BTUs
+</option>
+
+</select>
+
+
+
+
+
+<select id="filtroStatus">
+
+<option>
+Todos os status
+</option>
+
+</select>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     TABELA
+========================= -->
+
+
+<section class="tabela-container">
+
+
+
+
+
+<div class="busca">
+
+
+<i class='bx bx-search'></i>
+
+
+<input 
+id="campoBusca"
+type="text"
+placeholder="Buscar código, ambiente ou marca...">
+
+
+</div>
+
+
+
+
+
+
+
+<table>
+
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+Código
+</th>
+
+
+<th>
+Unidade
+</th>
+
+
+<th>
+Ambiente
+</th>
+
+
+<th>
+Marca
+</th>
+
+
+<th>
+BTU
+</th>
+
+
+<th>
+Última manutenção
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Ações
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+<tbody id="tabelaEquipamentos">
+
+
+
+<!-- 
+Dados carregados pelo equipamentos.js
+--> 
+
+
+
+</tbody>
+
+
+
+
+
+</table>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<!-- Proteção de acesso -->
+
+<script 
+type="module"
+src="../js/auth.js">
+</script>
+
+
+
+
+<!-- Dados dos equipamentos -->
+
+<script 
+type="module"
+src="../js/equipamentos.js">
+</script>
+
+
+
+
+</body>
+
+
+</html>

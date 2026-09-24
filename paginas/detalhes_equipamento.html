@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detalhes do Equipamento | PMOC</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- MENU LATERAL -->
+
+<aside class="sidebar">
+
+
+<div class="logo-area">
+
+<img 
+src="../imagens/logo/Grupo_Energisa.svg.webp"
+alt="Grupo Energisa"
+class="logo">
+
+
+<h1>PMOC</h1>
+
+<p>
+Gestão de Climatização
+</p>
+
+</div>
+
+
+
+
+<nav class="menu">
+
+
+<a href="dashboard.html">
+▦ Dashboard
+</a>
+
+
+<a href="equipamentos.html" class="ativo">
+≋ Equipamentos
+</a>
+
+
+<a href="manutencoes.html">
+🔧 Manutenções
+</a>
+
+
+<a href="usuarios.html">
+Usuários
+</a>
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTEÚDO -->
+
+<main class="conteudo">
+
+
+
+<header class="pagina-header">
+
+
+<div>
+
+<span class="subtitulo">
+Ficha técnica
+</span>
+
+
+<h1>
+Detalhes do equipamento
+</h1>
+
+
+<p>
+Informações e histórico do PMOC
+</p>
+
+
+</div>
+
+
+
+<button 
+class="btn-voltar"
+onclick="voltarEquipamentos()">
+
+← Voltar
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+<section class="cards-detalhes">
+
+
+
+<!-- EQUIPAMENTO -->
+
+<div class="card-detalhe">
+
+
+<h2>
+≋ Equipamento
+</h2>
+
+
+
+<div class="linha-info">
+
+<label>
+Código
+</label>
+
+<strong id="codigo">
+-
+</strong>
+
+
+</div>
+
+
+
+
+<div class="linha-info">
+
+<label>
+Unidade
+</label>
+
+<strong id="unidade">
+-
+</strong>
+
+
+</div>
+
+
+
+
+<div class="linha-info">
+
+<label>
+Ambiente
+</label>
+
+<strong id="ambiente">
+-
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- CARACTERÍSTICAS -->
+
+
+<div class="card-detalhe">
+
+
+<h2>
+⚙ Características
+</h2>
+
+
+
+
+<div class="linha-info">
+
+<label>
+Marca
+</label>
+
+<strong id="marca">
+-
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="linha-info">
+
+<label>
+Modelo
+</label>
+
+<strong id="modelo">
+-
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="linha-info">
+
+<label>
+Capacidade
+</label>
+
+<strong id="btu">
+-
+</strong>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- HISTÓRICO -->
+
+
+<section class="card-detalhe historico">
+
+
+<div class="historico-header">
+
+
+<h2>
+◴ Histórico de manutenção
+</h2>
+
+
+
+
+<button
+
+class="btn-manutencao"
+
+onclick="novaManutencao()">
+
++ Nova manutenção
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<table class="tabela">
+
+
+<thead>
+
+<tr>
+
+<th>
+Data
+</th>
+
+
+<th>
+Serviço
+</th>
+
+
+<th>
+Responsável
+</th>
+
+
+<th>
+Status
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+
+<tbody id="listaManutencoes">
+
+
+<tr>
+
+<td colspan="4">
+
+Nenhuma manutenção registrada.
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+<script type="module" src="../js/detalhesEquipamento.js"></script>
+
+
+
+<script>
+
+
+function voltarEquipamentos(){
+
+window.location.href =
+"equipamentos.html";
+
+}
+
+
+
+function novaManutencao(){
+
+
+const id =
+
+new URLSearchParams(
+
+window.location.search
+
+).get("id");
+
+
+
+window.location.href =
+
+`cadastro_manutencao.html?id=${id}`;
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

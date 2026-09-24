@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Cadastro de Equipamento | PMOC Energisa
+</title>
+
+
+<link rel="stylesheet" href="../css/style.css">
+
+
+<link 
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+
+<img 
+src="../imagens/logo/Grupo_Energisa.svg.webp"
+alt="Grupo Energisa">
+
+
+<h3>
+PMOC
+</h3>
+
+
+<span>
+Gestão de Climatização
+</span>
+
+
+</div>
+
+
+
+
+
+<nav class="menu">
+
+
+
+<a href="dashboard.html" class="menu-item">
+
+<i class='bx bx-grid-alt'></i>
+
+Dashboard
+
+</a>
+
+
+
+
+<a href="equipamentos.html" class="menu-item ativo">
+
+<i class='bx bx-wind'></i>
+
+Equipamentos
+
+</a>
+
+
+
+
+<a href="manutencao.html" class="menu-item">
+
+<i class='bx bx-wrench'></i>
+
+Manutenções
+
+</a>
+
+
+
+
+<a href="#" class="menu-item">
+
+<i class='bx bx-file'></i>
+
+PMOC
+
+</a>
+
+
+
+
+<a href="#" class="menu-item">
+
+<i class='bx bx-building'></i>
+
+Unidades
+
+</a>
+
+
+
+<a href="usuarios.html" class="menu-item">
+
+<i class='bx bx-group'></i>
+
+Usuários
+
+</a>
+
+
+
+</nav>
+
+
+
+</aside>
+
+
+
+
+
+
+
+<!-- =========================
+     CONTEÚDO
+========================= -->
+
+
+<main class="conteudo">
+
+
+
+<header class="topo">
+
+
+<div>
+
+
+<p class="saudacao">
+Cadastro
+</p>
+
+
+<h1>
+Novo equipamento
+</h1>
+
+
+<span>
+Cadastrar equipamento de climatização no PMOC
+</span>
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+<section class="form-container">
+
+
+
+<form id="formEquipamento">
+
+
+
+
+
+<h2 class="titulo-form">
+
+Dados do equipamento
+
+</h2>
+
+
+
+
+
+<div class="form-grid">
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Código do equipamento
+</label>
+
+
+<input 
+id="codigo"
+type="text"
+placeholder="Ex: AC-002"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Unidade
+</label>
+
+
+<input 
+id="unidade"
+type="text"
+placeholder="Ex: Sede Energisa"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Ambiente
+</label>
+
+
+<input 
+id="ambiente"
+type="text"
+placeholder="Ex: Recepção"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Marca
+</label>
+
+
+<input 
+id="marca"
+type="text"
+placeholder="Ex: LG">
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Modelo
+</label>
+
+
+<input 
+id="modelo"
+type="text"
+placeholder="Modelo do equipamento">
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Capacidade (BTU)
+</label>
+
+
+<input 
+id="btus"
+type="number"
+placeholder="12000">
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<h2 class="titulo-form">
+
+Controle PMOC
+
+</h2>
+
+
+
+
+
+
+<div class="form-grid">
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Última manutenção
+</label>
+
+
+<input 
+id="ultimaManutencao"
+type="date">
+
+
+</div>
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+Status
+</label>
+
+
+<select id="status">
+
+
+<option value="Em dia">
+Em dia
+</option>
+
+
+<option value="Vencendo">
+Vencendo
+</option>
+
+
+<option value="Em correção">
+Em correção
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="acoes">
+
+
+
+<button 
+type="submit"
+class="btn-principal">
+
+
+<i class='bx bx-save'></i>
+
+Salvar equipamento
+
+
+</button>
+
+
+
+
+
+<a 
+href="equipamentos.html"
+class="btn-secundario">
+
+
+<i class='bx bx-arrow-back'></i>
+
+Voltar
+
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+</form>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script 
+type="module"
+src="../js/cadastroEquipamento.js">
+</script>
+
+
+
+
+</body>
+
+
+</html>
