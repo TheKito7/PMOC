@@ -3,417 +3,418 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Detalhes do Equipamento | PMOC</title>
+    <title>
+        Detalhes do Equipamento | PMOC
+    </title>
 
-<link rel="stylesheet" href="../css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
 
 </head>
 
 
-<body>
+<body class="pagina-detalhes">
 
 
-<!-- MENU LATERAL -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
 
-<div class="logo-area">
+        <div class="sidebar-logo">
 
-<img 
-src="../imagens/logo/Grupo_Energisa.svg.webp"
-alt="Grupo Energisa"
-class="logo">
 
+            <img
+                src="../imagens/logo/Grupo_Energisa.svg.webp"
+                alt="Grupo Energisa"
+                class="logo"
+            >
 
-<h1>PMOC</h1>
 
-<p>
-Gestão de Climatização
-</p>
+            <h3>
+                PMOC
+            </h3>
 
-</div>
 
+            <span>
+                Gestão de Climatização
+            </span>
 
 
+        </div>
 
-<nav class="menu">
 
 
-<a href="dashboard.html">
-▦ Dashboard
-</a>
+        <nav class="menu">
 
 
-<a href="equipamentos.html" class="ativo">
-≋ Equipamentos
-</a>
+            <a
+                href="dashboard.html"
+                class="menu-item"
+            >
 
+                <i class="bx bx-grid-alt"></i>
 
-<a href="manutencoes.html">
-🔧 Manutenções
-</a>
+                Dashboard
 
+            </a>
 
-<a href="usuarios.html">
-Usuários
-</a>
 
 
-</nav>
+            <a
+                href="equipamentos.html"
+                class="menu-item ativo"
+            >
 
+                <i class="bx bx-wind"></i>
 
-</aside>
+                Equipamentos
 
+            </a>
 
 
 
+            <a
+                href="manutencao.html"
+                class="menu-item"
+            >
 
-<!-- CONTEÚDO -->
+                <i class="bx bx-wrench"></i>
 
-<main class="conteudo">
+                Manutenções
 
+            </a>
 
 
-<header class="pagina-header">
 
+            <a
+                href="usuarios.html"
+                class="menu-item"
+            >
 
-<div>
+                <i class="bx bx-user"></i>
 
-<span class="subtitulo">
-Ficha técnica
-</span>
+                Usuários
 
+            </a>
 
-<h1>
-Detalhes do equipamento
-</h1>
 
+        </nav>
 
-<p>
-Informações e histórico do PMOC
-</p>
 
+    </aside>
 
-</div>
 
 
+    <!-- =====================================
+         CONTEÚDO
+    ====================================== -->
 
-<button 
-class="btn-voltar"
-onclick="voltarEquipamentos()">
+    <main class="conteudo detalhes-conteudo">
 
-← Voltar
 
-</button>
+        <!-- =================================
+             CABEÇALHO
+        ================================== -->
 
+        <header class="pagina-header">
 
-</header>
 
+            <div>
 
+                <span class="subtitulo">
+                    Ficha técnica
+                </span>
 
 
+                <h1>
+                    Detalhes do equipamento
+                </h1>
 
 
+                <p class="descricao-pagina">
+                    Informações e histórico do PMOC
+                </p>
 
-<section class="cards-detalhes">
+            </div>
 
 
 
-<!-- EQUIPAMENTO -->
+            <button
+                type="button"
+                id="voltar"
+                class="btn-voltar"
+            >
 
-<div class="card-detalhe">
+                <i class="bx bx-arrow-back"></i>
 
+                Voltar
 
-<h2>
-≋ Equipamento
-</h2>
+            </button>
 
 
+        </header>
 
-<div class="linha-info">
 
-<label>
-Código
-</label>
 
-<strong id="codigo">
--
-</strong>
+        <!-- =================================
+             CARDS SUPERIORES
+        ================================== -->
 
+        <section class="cards-detalhes">
 
-</div>
 
+            <!-- EQUIPAMENTO -->
 
+            <article class="card-detalhe">
 
 
-<div class="linha-info">
+                <h2>
 
-<label>
-Unidade
-</label>
+                    <i class="bx bx-wind"></i>
 
-<strong id="unidade">
--
-</strong>
+                    Equipamento
 
+                </h2>
 
-</div>
 
 
+                <div class="linha-info">
 
+                    <span>
+                        Código
+                    </span>
 
-<div class="linha-info">
+                    <strong id="codigo">
+                        -
+                    </strong>
 
-<label>
-Ambiente
-</label>
+                </div>
 
-<strong id="ambiente">
--
-</strong>
 
 
-</div>
+                <div class="linha-info">
 
+                    <span>
+                        Unidade
+                    </span>
 
+                    <strong id="unidade">
+                        -
+                    </strong>
 
-</div>
+                </div>
 
 
 
+                <div class="linha-info">
 
+                    <span>
+                        Ambiente
+                    </span>
 
+                    <strong id="ambiente">
+                        -
+                    </strong>
 
+                </div>
 
 
-<!-- CARACTERÍSTICAS -->
+            </article>
 
 
-<div class="card-detalhe">
 
+            <!-- CARACTERÍSTICAS -->
 
-<h2>
-⚙ Características
-</h2>
+            <article class="card-detalhe">
 
 
+                <h2>
 
+                    <i class="bx bx-cog"></i>
 
-<div class="linha-info">
+                    Características
 
-<label>
-Marca
-</label>
+                </h2>
 
-<strong id="marca">
--
-</strong>
 
 
-</div>
+                <div class="linha-info">
 
+                    <span>
+                        Marca
+                    </span>
 
+                    <strong id="marca">
+                        -
+                    </strong>
 
+                </div>
 
 
-<div class="linha-info">
 
-<label>
-Modelo
-</label>
+                <div class="linha-info">
 
-<strong id="modelo">
--
-</strong>
+                    <span>
+                        Modelo
+                    </span>
 
+                    <strong id="modelo">
+                        -
+                    </strong>
 
-</div>
+                </div>
 
 
 
+                <div class="linha-info">
 
+                    <span>
+                        Capacidade
+                    </span>
 
-<div class="linha-info">
+                    <strong id="capacidade">
+                        -
+                    </strong>
 
-<label>
-Capacidade
-</label>
+                </div>
 
-<strong id="btu">
--
-</strong>
 
+            </article>
 
-</div>
 
+        </section>
 
 
 
-</div>
+        <!-- =================================
+             HISTÓRICO
+        ================================== -->
 
+        <section class="card-detalhe historico">
 
 
-</section>
+            <div class="historico-header">
 
 
+                <h2>
 
+                    <i class="bx bx-history"></i>
 
+                    Histórico de manutenção
 
+                </h2>
 
 
 
-<!-- HISTÓRICO -->
+                <button
+                    type="button"
+                    id="novaManutencao"
+                    class="btn-manutencao"
+                >
 
+                    <i class="bx bx-plus"></i>
 
-<section class="card-detalhe historico">
+                    Nova manutenção
 
+                </button>
 
-<div class="historico-header">
 
+            </div>
 
-<h2>
-◴ Histórico de manutenção
-</h2>
 
 
+            <div class="tabela-responsiva">
 
 
-<button
+                <table class="tabela">
 
-class="btn-manutencao"
 
-onclick="novaManutencao()">
+                    <thead>
 
-+ Nova manutenção
+                        <tr>
 
-</button>
+                            <th>
+                                Data
+                            </th>
 
+                            <th>
+                                Serviço
+                            </th>
 
+                            <th>
+                                Responsável
+                            </th>
 
-</div>
+                            <th>
+                                Status
+                            </th>
 
+                        </tr>
 
+                    </thead>
 
 
 
-<table class="tabela">
+                    <tbody id="listaManutencoes">
 
+                        <tr>
 
-<thead>
+                            <td
+                                colspan="4"
+                                class="sem-manutencao"
+                            >
 
-<tr>
+                                Carregando histórico...
 
-<th>
-Data
-</th>
+                            </td>
 
+                        </tr>
 
-<th>
-Serviço
-</th>
+                    </tbody>
 
 
-<th>
-Responsável
-</th>
+                </table>
 
 
-<th>
-Status
-</th>
+            </div>
 
 
-</tr>
+        </section>
 
-</thead>
 
+    </main>
 
 
 
-<tbody id="listaManutencoes">
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
 
-
-<tr>
-
-<td colspan="4">
-
-Nenhuma manutenção registrada.
-
-</td>
-
-</tr>
-
-
-</tbody>
-
-
-</table>
-
-
-
-</section>
-
-
-
-
-
-
-
-</main>
-
-
-
-
-
-
-
-<script type="module" src="../js/detalhesEquipamento.js"></script>
-
-
-
-<script>
-
-
-function voltarEquipamentos(){
-
-window.location.href =
-"equipamentos.html";
-
-}
-
-
-
-function novaManutencao(){
-
-
-const id =
-
-new URLSearchParams(
-
-window.location.search
-
-).get("id");
-
-
-
-window.location.href =
-
-`cadastro_manutencao.html?id=${id}`;
-
-
-}
-
-
-</script>
-
+    <script
+        type="module"
+        src="../js/detalhesEquipamento.js"
+    ></script>
 
 
 </body>
-
 
 </html>

@@ -3,599 +3,722 @@
 // MÓDULO DE MANUTENÇÕES
 // ============================================
 
-
 import { db } from "./firebase.js";
 
-
 import {
-
     collection,
-    getDocs,
-    query,
-    orderBy
-
+    getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
 
 
 // ============================================
 // VARIÁVEIS
 // ============================================
 
-
 let listaManutencoes = [];
-
-
-
-
-
 
 
 // ============================================
 // ELEMENTOS
 // ============================================
 
-
-const tabela = 
-document.getElementById(
-    "listaManutencoes"
-);
-
-
+const tabela =
+    document.getElementById(
+        "listaManutencoes"
+    );
 
 const total =
-document.getElementById(
-    "totalManutencoes"
-);
-
-
+    document.getElementById(
+        "totalManutencoes"
+    );
 
 const preventivas =
-document.getElementById(
-    "totalPreventivas"
-);
-
-
+    document.getElementById(
+        "totalPreventivas"
+    );
 
 const corretivas =
-document.getElementById(
-    "totalCorretivas"
-);
-
-
+    document.getElementById(
+        "totalCorretivas"
+    );
 
 const pendentes =
-document.getElementById(
-    "totalPendentes"
-);
+    document.getElementById(
+        "totalPendentes"
+    );
 
 
-
-
-
-
+// ============================================
 // FILTROS
-
+// ============================================
 
 const filtroTipo =
-document.getElementById(
-    "filtroTipo"
-);
-
-
+    document.getElementById(
+        "filtroTipo"
+    );
 
 const filtroStatus =
-document.getElementById(
-    "filtroStatus"
-);
-
-
+    document.getElementById(
+        "filtroStatus"
+    );
 
 const filtroEquipamento =
-document.getElementById(
-    "filtroEquipamento"
-);
+    document.getElementById(
+        "filtroEquipamento"
+    );
 
 
+// ============================================
+// FORMATAR DATA
+// ============================================
+
+function formatarData(data) {
+
+    if (!data) {
+        return "-";
+    }
 
 
+    // Firestore Timestamp
+    if (
+        typeof data === "object" &&
+        typeof data.toDate === "function"
+    ) {
+
+        return data
+            .toDate()
+            .toLocaleDateString("pt-BR");
+
+    }
 
 
+    const texto =
+        String(data);
+
+
+    // Formato yyyy-mm-dd
+    if (
+        /^\d{4}-\d{2}-\d{2}$/.test(texto)
+    ) {
+
+        const partes =
+            texto.split("-");
+
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+
+    }
+
+
+    return texto;
+}
+
+
+// ============================================
+// DATA PARA ORDENAÇÃO
+// ============================================
+
+function obterDataOrdenacao(item) {
+
+    // criadoEm
+    if (
+        item.criadoEm &&
+        typeof item.criadoEm.toDate === "function"
+    ) {
+
+        return item.criadoEm
+            .toDate()
+            .getTime();
+
+    }
+
+
+    // data da manutenção
+    if (item.data) {
+
+        const partes =
+            String(item.data).split("-");
+
+
+        if (partes.length === 3) {
+
+            return new Date(
+                Number(partes[0]),
+                Number(partes[1]) - 1,
+                Number(partes[2])
+            ).getTime();
+
+        }
+
+    }
+
+
+    return 0;
+}
 
 
 // ============================================
 // BUSCAR MANUTENÇÕES
 // ============================================
 
+async function carregarManutencoes() {
 
-async function carregarManutencoes(){
+    try {
 
-
-
-try{
-
-
-const consulta = query(
-
-    collection(
-        db,
-        "manutencoes"
-    ),
-
-    orderBy(
-        "criadoEm",
-        "desc"
-    )
-
-);
+        console.log(
+            "Carregando manutenções..."
+        );
 
 
+        if (!tabela) {
+
+            console.error(
+                "Elemento #listaManutencoes não encontrado."
+            );
+
+            return;
+        }
 
 
-const resultado =
+        // ------------------------------------
+        // COLEÇÃO GERAL
+        // ------------------------------------
 
-await getDocs(
-    consulta
-);
-
-
-
-
-
-listaManutencoes = [];
+        const referencia =
+            collection(
+                db,
+                "manutencoes"
+            );
 
 
+        const resultado =
+            await getDocs(
+                referencia
+            );
 
 
-
-resultado.forEach((documento)=>{
-
-
-listaManutencoes.push({
-
-    id:
-    documento.id,
-
-    ...documento.data()
-
-});
+        listaManutencoes = [];
 
 
-});
+        // ------------------------------------
+        // TRANSFORMAR DOCUMENTOS EM ARRAY
+        // ------------------------------------
+
+        resultado.forEach(
+            documento => {
+
+                const dados =
+                    documento.data();
 
 
+                listaManutencoes.push({
+
+                    id:
+                        documento.id,
+
+                    ...dados
+
+                });
+
+            }
+        );
 
 
+        // ------------------------------------
+        // ORDENAR
+        // MAIS RECENTE PRIMEIRO
+        // ------------------------------------
 
-console.log(
-"Manutenções:",
-listaManutencoes
-);
+        listaManutencoes.sort(
+            (a, b) => {
 
+                return (
+                    obterDataOrdenacao(b) -
+                    obterDataOrdenacao(a)
+                );
 
-
-
-
-atualizarIndicadores();
-
-
-mostrarTabela(
-    listaManutencoes
-);
-
+            }
+        );
 
 
+        console.log(
+            "Manutenções encontradas:",
+            listaManutencoes
+        );
 
+
+        // ------------------------------------
+        // ATUALIZAR INDICADORES
+        // ------------------------------------
+
+        atualizarIndicadores();
+
+
+        // ------------------------------------
+        // MOSTRAR TABELA
+        // ------------------------------------
+
+        mostrarTabela(
+            listaManutencoes
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Erro ao carregar manutenções:",
+            error
+        );
+
+
+        if (tabela) {
+
+            tabela.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        class="erro-tabela"
+                    >
+
+                        Não foi possível
+                        carregar as manutenções.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+
+    }
 
 }
-
-
-catch(error){
-
-
-console.error(
-
-"Erro ao carregar manutenções:",
-
-error
-
-);
-
-
-
-tabela.innerHTML = `
-
-<tr>
-
-<td colspan="6">
-
-Erro ao carregar dados.
-
-</td>
-
-</tr>
-
-`;
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
 
 
 // ============================================
 // INDICADORES
 // ============================================
 
+function atualizarIndicadores() {
 
-function atualizarIndicadores(){
+    let totalPreventiva = 0;
 
+    let totalCorretiva = 0;
 
-
-let totalPreventiva = 0;
-
-let totalCorretiva = 0;
-
-let totalPendente = 0;
+    let totalPendente = 0;
 
 
+    listaManutencoes.forEach(
+        item => {
+
+            const tipo =
+                String(
+                    item.tipo || ""
+                ).trim().toLowerCase();
 
 
+            const status =
+                String(
+                    item.status || ""
+                ).trim().toLowerCase();
 
-listaManutencoes.forEach((item)=>{
+
+            if (
+                tipo === "preventiva"
+            ) {
+
+                totalPreventiva++;
+
+            }
 
 
+            if (
+                tipo === "corretiva"
+            ) {
 
-if(item.tipo === "Preventiva"){
+                totalCorretiva++;
 
-totalPreventiva++;
+            }
+
+
+            if (
+                status === "pendente"
+            ) {
+
+                totalPendente++;
+
+            }
+
+        }
+    );
+
+
+    if (total) {
+
+        total.textContent =
+            listaManutencoes.length;
+
+    }
+
+
+    if (preventivas) {
+
+        preventivas.textContent =
+            totalPreventiva;
+
+    }
+
+
+    if (corretivas) {
+
+        corretivas.textContent =
+            totalCorretiva;
+
+    }
+
+
+    if (pendentes) {
+
+        pendentes.textContent =
+            totalPendente;
+
+    }
 
 }
 
 
+// ============================================
+// STATUS
+// ============================================
 
-if(item.tipo === "Corretiva"){
+function criarStatus(status) {
 
-totalCorretiva++;
-
-}
-
-
-
-if(item.status === "Pendente"){
-
-totalPendente++;
-
-}
+    const valor =
+        status || "Concluído";
 
 
-
-});
-
-
-
-
-
-total.innerHTML =
-listaManutencoes.length;
+    const classe =
+        String(valor)
+            .toLowerCase()
+            .includes("concl")
+                ? "verde-status"
+                : "status-pendente";
 
 
+    return `
 
-preventivas.innerHTML =
-totalPreventiva;
+        <span class="status ${classe}">
 
+            ${valor}
 
+        </span>
 
-corretivas.innerHTML =
-totalCorretiva;
-
-
-
-pendentes.innerHTML =
-totalPendente;
-
-
+    `;
 
 }
-
-
-
-
-
-
-
 
 
 // ============================================
 // MOSTRAR TABELA
 // ============================================
 
+function mostrarTabela(dados) {
 
-function mostrarTabela(dados){
+    if (!tabela) {
 
+        return;
 
-
-if(dados.length === 0){
-
-
-
-tabela.innerHTML = `
+    }
 
 
-<tr>
+    // ------------------------------------
+    // NENHUM RESULTADO
+    // ------------------------------------
 
-<td colspan="6">
+    if (dados.length === 0) {
 
-Nenhuma manutenção encontrada.
+        tabela.innerHTML = `
 
-</td>
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="sem-resultados"
+                >
+
+                    Nenhuma manutenção
+                    encontrada.
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
 
 
-</tr>
+    tabela.innerHTML = "";
 
 
-`;
+    // ------------------------------------
+    // GERAR LINHAS
+    // ------------------------------------
 
-return;
+    dados.forEach(
+        item => {
 
+            const equipamento =
+                item.equipamento ||
+                item.codigoEquipamento ||
+                "-";
+
+
+            const responsavel =
+                item.tecnico ||
+                item.responsavel ||
+                "-";
+
+
+            const tipo =
+                item.tipo ||
+                "-";
+
+
+            const status =
+                item.status ||
+                "Concluído";
+
+
+            const linha =
+                document.createElement("tr");
+
+
+            linha.innerHTML = `
+
+                <td>
+
+                    ${formatarData(
+                        item.data
+                    )}
+
+                </td>
+
+
+                <td>
+
+                    <strong class="codigo-equipamento">
+
+                        ${equipamento}
+
+                    </strong>
+
+                </td>
+
+
+                <td>
+
+                    ${tipo}
+
+                </td>
+
+
+                <td>
+
+                    ${responsavel}
+
+                </td>
+
+
+                <td>
+
+                    ${criarStatus(
+                        status
+                    )}
+
+                </td>
+
+
+                <td>
+
+                    <a
+                        href="detalhes_equipamento.html?id=${encodeURIComponent(equipamento)}"
+                        class="acao-visualizar"
+                        title="Ver equipamento"
+                    >
+
+                        <i class="bx bx-show"></i>
+
+                    </a>
+
+                </td>
+
+            `;
+
+
+            tabela.appendChild(
+                linha
+            );
+
+        }
+    );
 
 }
-
-
-
-
-
-
-tabela.innerHTML = "";
-
-
-
-
-
-dados.forEach((item)=>{
-
-
-
-tabela.innerHTML += `
-
-
-<tr>
-
-
-
-<td>
-
-${item.data || "-"}
-
-</td>
-
-
-
-
-
-<td>
-
-${item.equipamento || "-"}
-
-</td>
-
-
-
-
-
-<td>
-
-${item.tipo || "-"}
-
-</td>
-
-
-
-
-
-<td>
-
-${item.tecnico || "-"}
-
-</td>
-
-
-
-
-
-<td>
-
-
-<span class="status verde-status">
-
-${item.status || "Concluído"}
-
-</span>
-
-
-</td>
-
-
-
-
-
-<td>
-
-
-<a href="detalhes_equipamento.html?id=${item.equipamento}">
-
-<i class='bx bx-show'></i>
-
-</a>
-
-
-
-</td>
-
-
-
-
-</tr>
-
-
-`;
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
 
 
 // ============================================
-// FILTROS
+// APLICAR FILTROS
 // ============================================
 
+function aplicarFiltros() {
 
-function aplicarFiltros(){
-
-
-
-let resultado = listaManutencoes;
+    let resultado =
+        [...listaManutencoes];
 
 
+    // ------------------------------------
+    // FILTRO POR TIPO
+    // ------------------------------------
+
+    if (
+        filtroTipo &&
+        filtroTipo.value
+    ) {
+
+        resultado =
+            resultado.filter(
+                item => {
+
+                    return (
+                        String(
+                            item.tipo || ""
+                        ).toLowerCase()
+                        ===
+                        String(
+                            filtroTipo.value
+                        ).toLowerCase()
+                    );
+
+                }
+            );
+
+    }
 
 
-if(filtroTipo.value){
+    // ------------------------------------
+    // FILTRO POR STATUS
+    // ------------------------------------
+
+    if (
+        filtroStatus &&
+        filtroStatus.value
+    ) {
+
+        resultado =
+            resultado.filter(
+                item => {
+
+                    return (
+                        String(
+                            item.status ||
+                            "Concluído"
+                        ).toLowerCase()
+                        ===
+                        String(
+                            filtroStatus.value
+                        ).toLowerCase()
+                    );
+
+                }
+            );
+
+    }
 
 
-resultado = resultado.filter(
+    // ------------------------------------
+    // BUSCA POR EQUIPAMENTO
+    // ------------------------------------
 
-item =>
+    if (
+        filtroEquipamento &&
+        filtroEquipamento.value.trim()
+    ) {
 
-item.tipo === filtroTipo.value
+        const busca =
+            filtroEquipamento.value
+                .trim()
+                .toLowerCase();
 
-);
 
+        resultado =
+            resultado.filter(
+                item => {
+
+                    const equipamento =
+                        String(
+                            item.equipamento ||
+                            item.codigoEquipamento ||
+                            ""
+                        ).toLowerCase();
+
+
+                    return equipamento
+                        .includes(busca);
+
+                }
+            );
+
+    }
+
+
+    mostrarTabela(
+        resultado
+    );
 
 }
 
 
-
-
-if(filtroStatus.value){
-
-
-resultado = resultado.filter(
-
-item =>
-
-item.status === filtroStatus.value
-
-);
-
-
-}
-
-
-
-
-
-
-if(filtroEquipamento.value){
-
-
-resultado = resultado.filter(
-
-item =>
-
-item.equipamento
-
-.toLowerCase()
-
-.includes(
-
-filtroEquipamento.value
-
-.toLowerCase()
-
-)
-
-);
-
-
-}
-
-
-
-
-mostrarTabela(resultado);
-
-
-
-}
-
-
-
-
-
-
-
-
+// ============================================
 // EVENTOS
+// ============================================
+
+if (filtroTipo) {
+
+    filtroTipo.addEventListener(
+        "change",
+        aplicarFiltros
+    );
+
+}
 
 
-filtroTipo.addEventListener(
+if (filtroStatus) {
 
-"change",
+    filtroStatus.addEventListener(
+        "change",
+        aplicarFiltros
+    );
 
-aplicarFiltros
-
-);
-
-
-
-filtroStatus.addEventListener(
-
-"change",
-
-aplicarFiltros
-
-);
+}
 
 
+if (filtroEquipamento) {
 
-filtroEquipamento.addEventListener(
+    filtroEquipamento.addEventListener(
+        "input",
+        aplicarFiltros
+    );
 
-"input",
-
-aplicarFiltros
-
-);
-
-
+}
 
 
-
-
-
-
+// ============================================
 // INICIAR
-
+// ============================================
 
 carregarManutencoes();

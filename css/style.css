@@ -3257,3 +3257,767 @@ overflow-x:auto;
 
 
 }
+
+/* =====================================================
+   PMOC - DETALHES DO EQUIPAMENTO
+   CORREÇÃO FINAL DE LAYOUT
+===================================================== */
+
+
+/* =====================================================
+   BODY DA PÁGINA
+===================================================== */
+
+body.pagina-detalhes {
+
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    padding: 0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(0, 174, 239, 0.08),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(113, 191, 68, 0.07),
+            transparent 20%
+        ),
+        #f3f7fc;
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+body.pagina-detalhes .sidebar {
+
+    flex: 0 0 240px;
+
+    width: 240px !important;
+
+    min-width: 240px;
+
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5edf5;
+
+    padding: 28px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    box-shadow:
+        8px 0 24px rgba(15, 23, 42, 0.04);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+body.pagina-detalhes .sidebar-logo {
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+body.pagina-detalhes .sidebar-logo img.logo {
+
+    width: 150px !important;
+
+    max-width: 100%;
+
+    height: auto !important;
+
+    max-height: 90px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 18px auto;
+
+}
+
+
+body.pagina-detalhes .sidebar-logo h3 {
+
+    margin: 0 0 6px 0;
+
+    color: #0b3f85;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+}
+
+
+body.pagina-detalhes .sidebar-logo span {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+body.pagina-detalhes .menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+body.pagina-detalhes .menu-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border-radius: 14px;
+
+    color: #475569;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: .2s ease;
+
+}
+
+
+body.pagina-detalhes .menu-item i {
+
+    font-size: 20px;
+
+}
+
+
+body.pagina-detalhes .menu-item:hover {
+
+    background: #f2f8ff;
+
+    color: #005ca9;
+
+}
+
+
+body.pagina-detalhes .menu-item.ativo {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e7f3ff,
+            #f5fbff
+        );
+
+    color: #005ca9;
+
+    font-weight: 700;
+
+    box-shadow:
+        inset 4px 0 0 #00a3e0;
+
+}
+
+
+/* =====================================================
+   ÁREA PRINCIPAL
+===================================================== */
+
+body.pagina-detalhes .detalhes-conteudo {
+
+    flex: 1;
+
+    width: calc(100% - 240px);
+
+    min-width: 0;
+
+    min-height: 100vh;
+
+    padding: 42px 48px;
+
+    background: transparent;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+body.pagina-detalhes .pagina-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+
+}
+
+
+body.pagina-detalhes .pagina-header h1 {
+
+    margin: 5px 0 4px;
+
+    color: #003b70;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+}
+
+
+body.pagina-detalhes .subtitulo {
+
+    color: #1683d8;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+body.pagina-detalhes .descricao-pagina {
+
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+body.pagina-detalhes .btn-voltar {
+
+    width: auto !important;
+
+    min-width: 120px;
+
+    height: 44px !important;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #ffffff;
+
+    color: #005ca9;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 22px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 16px rgba(15, 23, 42, .04);
+
+}
+
+
+body.pagina-detalhes .btn-voltar:hover {
+
+    background: #eff6ff;
+
+}
+
+
+/* =====================================================
+   CARDS SUPERIORES
+===================================================== */
+
+body.pagina-detalhes .cards-detalhes {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 24px;
+
+    width: 100%;
+
+    margin: 0 0 24px 0;
+
+}
+
+
+body.pagina-detalhes .card-detalhe {
+
+    background: #ffffff;
+
+    border: 1px solid #e9f0f7;
+
+    border-radius: 22px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, .055);
+
+}
+
+
+body.pagina-detalhes .card-detalhe h2 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0 0 22px 0;
+
+    color: #003b70;
+
+    font-size: 23px;
+
+    font-weight: 750;
+
+}
+
+
+body.pagina-detalhes .card-detalhe h2 i {
+
+    color: #1683d8;
+
+    font-size: 24px;
+
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+body.pagina-detalhes .linha-info {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    min-height: 52px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #edf2f7;
+
+}
+
+
+body.pagina-detalhes .linha-info:last-child {
+
+    border-bottom: none;
+
+}
+
+
+body.pagina-detalhes .linha-info span {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+body.pagina-detalhes .linha-info strong {
+
+    color: #003b70;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-align: right;
+
+}
+
+
+/* =====================================================
+   HISTÓRICO
+===================================================== */
+
+body.pagina-detalhes .historico {
+
+    width: 100%;
+
+    margin-top: 0;
+
+}
+
+
+body.pagina-detalhes .historico-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 22px;
+
+}
+
+
+body.pagina-detalhes .historico-header h2 {
+
+    margin: 0;
+
+}
+
+
+/* =====================================================
+   BOTÃO NOVA MANUTENÇÃO
+===================================================== */
+
+body.pagina-detalhes .btn-manutencao {
+
+    width: auto !important;
+
+    min-width: 190px;
+
+    height: 48px !important;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #005ca9,
+            #38a8e8
+        );
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 92, 169, .20);
+
+}
+
+
+body.pagina-detalhes .btn-manutencao:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 24px rgba(0, 92, 169, .25);
+
+}
+
+
+/* =====================================================
+   TABELA
+===================================================== */
+
+body.pagina-detalhes .tabela-responsiva {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+body.pagina-detalhes .tabela {
+
+    width: 100%;
+
+    min-width: 650px;
+
+    border-collapse: collapse;
+
+}
+
+
+body.pagina-detalhes .tabela th {
+
+    padding: 15px 16px;
+
+    background: #f7f9fc;
+
+    color: #64748b;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+body.pagina-detalhes .tabela td {
+
+    padding: 17px 16px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #edf2f7;
+
+}
+
+
+body.pagina-detalhes .tabela tbody tr:hover {
+
+    background: #f8fbff;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+body.pagina-detalhes .status.concluido {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   MENSAGENS
+===================================================== */
+
+body.pagina-detalhes .sem-manutencao {
+
+    padding: 30px 16px !important;
+
+    text-align: center;
+
+    color: #64748b !important;
+
+}
+
+
+body.pagina-detalhes .erro-historico {
+
+    padding: 30px 16px !important;
+
+    text-align: center;
+
+    color: #b91c1c !important;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 900px) {
+
+    body.pagina-detalhes {
+
+        display: block;
+
+    }
+
+
+    body.pagina-detalhes .sidebar {
+
+        width: 100% !important;
+
+        min-width: 0;
+
+        min-height: auto;
+
+        padding: 20px;
+
+    }
+
+
+    body.pagina-detalhes .detalhes-conteudo {
+
+        width: 100%;
+
+        padding: 28px 20px;
+
+    }
+
+
+    body.pagina-detalhes .cards-detalhes {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    body.pagina-detalhes .pagina-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    body.pagina-detalhes .historico-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    body.pagina-detalhes .btn-manutencao {
+
+        width: 100% !important;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body.pagina-detalhes .pagina-header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    body.pagina-detalhes .card-detalhe {
+
+        padding: 22px 18px;
+
+    }
+
+
+    body.pagina-detalhes .linha-info {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+    }
+
+
+    body.pagina-detalhes .linha-info strong {
+
+        text-align: left;
+
+    }
+
+}
