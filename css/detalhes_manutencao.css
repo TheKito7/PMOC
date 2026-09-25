@@ -1,0 +1,450 @@
+/* =====================================================
+   DETALHES DA MANUTENÇÃO
+===================================================== */
+
+body.pagina-detalhes-manutencao {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: #f3f7fc;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.detalhe-manutencao-conteudo {
+
+    padding: 42px 48px;
+
+    min-height: 100vh;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho-manutencao {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.cabecalho-manutencao h1 {
+
+    margin: 6px 0;
+
+    color: #003b70;
+
+    font-size: 36px;
+
+}
+
+
+.cabecalho-manutencao p {
+
+    margin: 0;
+
+    color: #64748b;
+
+}
+
+
+.subtitulo {
+
+    color: #1683d8;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.btn-voltar {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    height: 44px;
+
+    padding: 0 20px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 22px;
+
+    background: white;
+
+    color: #005ca9;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card-manutencao,
+.card-status-manutencao {
+
+    background: white;
+
+    border: 1px solid #e5edf5;
+
+    border-radius: 20px;
+
+    padding: 26px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 10px 28px rgba(15, 23, 42, .05);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.card-status-manutencao {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.label-card {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.tipo-destaque strong {
+
+    color: #003b70;
+
+    font-size: 20px;
+
+}
+
+
+.status-detalhe {
+
+    display: inline-flex;
+
+    padding: 7px 16px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.status-concluido {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+
+.status-pendente {
+
+    background: #fef3c7;
+
+    color: #b45309;
+
+}
+
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
+.titulo-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.titulo-card i {
+
+    color: #1683d8;
+
+    font-size: 24px;
+
+}
+
+
+.titulo-card h2 {
+
+    margin: 0;
+
+    color: #003b70;
+
+    font-size: 21px;
+
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.grid-informacoes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+}
+
+
+.grid-informacoes div {
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+}
+
+
+.grid-informacoes span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+.grid-informacoes strong {
+
+    color: #003b70;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   SERVIÇOS
+===================================================== */
+
+.lista-servicos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.servico-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border: 1px solid #e5edf5;
+
+    border-radius: 12px;
+
+    background: #f8fbff;
+
+}
+
+
+.servico-item i {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+
+.servico-item span {
+
+    color: #334155;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   OBSERVAÇÃO
+===================================================== */
+
+.observacao {
+
+    min-height: 70px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   MENSAGENS
+===================================================== */
+
+.sem-servicos,
+.carregando,
+.erro-detalhes {
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #64748b;
+
+}
+
+
+.erro-detalhes {
+
+    color: #b91c1c;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .detalhe-manutencao-conteudo {
+
+        padding: 28px 20px;
+
+    }
+
+
+    .grid-informacoes {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cabecalho-manutencao {
+
+        flex-direction: column;
+
+    }
+
+
+    .cabecalho-manutencao h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .card-status-manutencao {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}

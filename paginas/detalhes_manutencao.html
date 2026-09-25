@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Detalhes da Manutenção | PMOC
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/detalhes_manutencao.css"
+    >
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="pagina-detalhes-manutencao">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="../imagens/logo/Grupo_Energisa.svg.webp"
+                alt="Grupo Energisa"
+                class="logo"
+            >
+
+            <h3>
+                PMOC
+            </h3>
+
+            <span>
+                Gestão de Climatização
+            </span>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a
+                href="dashboard.html"
+                class="menu-item"
+            >
+
+                <i class="bx bx-grid-alt"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="equipamentos.html"
+                class="menu-item"
+            >
+
+                <i class="bx bx-wind"></i>
+
+                Equipamentos
+
+            </a>
+
+
+            <a
+                href="manutencao.html"
+                class="menu-item ativo"
+            >
+
+                <i class="bx bx-wrench"></i>
+
+                Manutenções
+
+            </a>
+
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo detalhe-manutencao-conteudo">
+
+
+        <!-- CABEÇALHO -->
+
+        <header class="cabecalho-manutencao">
+
+            <div>
+
+                <span class="subtitulo">
+                    Registro de manutenção
+                </span>
+
+                <h1>
+                    Detalhes da manutenção
+                </h1>
+
+                <p>
+                    Histórico detalhado do serviço realizado.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="btnVoltar"
+                class="btn-voltar"
+            >
+
+                <i class="bx bx-arrow-back"></i>
+
+                Voltar
+
+            </button>
+
+        </header>
+
+
+
+        <!-- STATUS -->
+
+        <section class="card-status-manutencao">
+
+            <div>
+
+                <span class="label-card">
+                    Status da manutenção
+                </span>
+
+                <div
+                    id="statusManutencao"
+                    class="status-detalhe"
+                >
+                    Carregando...
+                </div>
+
+            </div>
+
+
+            <div class="tipo-destaque">
+
+                <span class="label-card">
+                    Tipo
+                </span>
+
+                <strong id="tipoManutencao">
+                    -
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- EQUIPAMENTO -->
+
+        <section class="card-manutencao">
+
+            <div class="titulo-card">
+
+                <i class="bx bx-wind"></i>
+
+                <h2>
+                    Equipamento
+                </h2>
+
+            </div>
+
+
+            <div class="grid-informacoes">
+
+                <div>
+
+                    <span>
+                        Código
+                    </span>
+
+                    <strong id="codigoEquipamento">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Unidade
+                    </span>
+
+                    <strong id="unidadeEquipamento">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Ambiente
+                    </span>
+
+                    <strong id="ambienteEquipamento">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMAÇÕES DA MANUTENÇÃO -->
+
+        <section class="card-manutencao">
+
+            <div class="titulo-card">
+
+                <i class="bx bx-calendar-check"></i>
+
+                <h2>
+                    Informações do serviço
+                </h2>
+
+            </div>
+
+
+            <div class="grid-informacoes">
+
+                <div>
+
+                    <span>
+                        Data
+                    </span>
+
+                    <strong id="dataManutencao">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Técnico responsável
+                    </span>
+
+                    <strong id="tecnicoManutencao">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Registrado em
+                    </span>
+
+                    <strong id="criadoEm">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SERVIÇOS -->
+
+        <section class="card-manutencao">
+
+            <div class="titulo-card">
+
+                <i class="bx bx-check-square"></i>
+
+                <h2>
+                    Serviços realizados
+                </h2>
+
+            </div>
+
+
+            <div
+                id="listaServicos"
+                class="lista-servicos"
+            >
+
+                <span class="carregando">
+                    Carregando...
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OBSERVAÇÃO -->
+
+        <section class="card-manutencao">
+
+            <div class="titulo-card">
+
+                <i class="bx bx-notepad"></i>
+
+                <h2>
+                    Observações
+                </h2>
+
+            </div>
+
+
+            <div
+                id="observacaoManutencao"
+                class="observacao"
+            >
+                -
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="../js/detalhesManutencao.js"
+    ></script>
+
+</body>
+
+</html>
